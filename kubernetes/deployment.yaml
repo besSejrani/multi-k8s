@@ -86,6 +86,9 @@ spec:
           image: redis
           ports:
             - containerPort: 6379
+          envFrom:
+            - configMapRef:
+                name: db-config
 
 ---
 apiVersion: apps/v1
