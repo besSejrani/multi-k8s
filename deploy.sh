@@ -10,7 +10,7 @@ docker push bes1815/multi-client:$SHA
 docker push bes1815/multi-server:$SHA
 docker push bes1815/multi-worker:$SHA
 
-kubectl apply -f k8s
+kubectl apply -f kubernetes
 kubectl set image deployments/deployment.yaml
 
 #kubectl set image deployments/deployment.yaml server=bes1815/multi-server:$SHA
