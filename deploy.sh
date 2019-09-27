@@ -11,4 +11,3 @@ docker push bes1815/multi-server:$SHA
 docker push bes1815/multi-worker:$SHA
 
 kubectl apply -f kubernetes
-kubectl set image deployments/deployment.yaml
