@@ -11,3 +11,6 @@ docker push bes1815/multi-server:$SHA
 docker push bes1815/multi-worker:$SHA
 
 kubectl apply -f kubernetes
+kubectl set image deployments/server-deployment server=bes1815/multi-server:$SHA
+kubectl set image deployments/client-deployment client=bes1815/multi-client:$SHA
+kubectl set image deployments/worker-deployment worker=bes1815/multi-worker:$SHA
