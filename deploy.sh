@@ -1,0 +1,16 @@
+docker build -t bes1815/multi-client:latest -f -t bes1815/multi-client:$SHA ./client/Dockerfile ./client
+docker build -t bes1815/multi-server:latest -f -t bes1815/multi-server:$SHA ./server/Dockerfile ./server
+docker build -t bes1815/multi-worker:latest -f -t bes1815/multi-worker:$SHA ./worker/Dockerfile ./worker
+
+docker push bes1815/multi-client:latest
+docker push bes1815/multi-server:latest
+docker push bes1815/multi-worker:latest
+
+docker push bes1815/multi-client:$SHA
+docker push bes1815/multi-server:$SHA
+docker push bes1815/multi-worker:$SHA
+
+kubectl apply -f k8s
+kubectl set image deployments/deployment.yaml
+
+#kubectl set image deployments/deployment.yaml server=bes1815/multi-server:$SHA
