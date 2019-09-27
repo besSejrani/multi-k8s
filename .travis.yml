@@ -19,7 +19,7 @@ before_install:
   - docker build -t bes1815/multi-client -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true bes1815/react-test npm run test
+  - docker run -e CI=true bes1815/multi-client npm run test
 
 deploy:
   provider: script
